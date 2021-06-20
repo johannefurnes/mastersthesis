@@ -491,14 +491,14 @@ plot_model(FEpolc6, type = "int",
 
 ##### STRINGENCY ACROSS TIME #####
 ##laggards
-dta4 <- subset(dta, 
+dta6 <- subset(dta, 
                (Country %in% c("Portugal", "Poland",
                                "Hungary", "Czech Rep.", "Slovakia", 
                                "Greece", "Turkey", "United States", 
                                "Australia", "Belgium", "Ireland")) 
                & Year & Stringency)
 
-dta4 <- dta4 %>%
+dta6 <- dta6 %>%
   group_by(Year) %>%
   summarise (Stringency = mean(Stringency, na.rm = TRUE))%>%
   filter(Year %in% c(1990:2012))
@@ -537,7 +537,7 @@ dta5 <- dta %>%
 
 ##Plotting
 ggplot() + 
-  geom_line(data = dta4, aes(x = Year, y = Stringency), size = 1.5,
+  geom_line(data = dta6, aes(x = Year, y = Stringency), size = 1.5,
             color =  "#00CC99", alpha = 0.5) +
   geom_line(data = dta3, aes(x = Year, y = Stringency), 
             color = "#009966", size = 1.5, alpha = 0.5) +
